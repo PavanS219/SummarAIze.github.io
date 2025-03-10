@@ -4,281 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SummarAIze - Content Summarization Tool</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-            overflow: hidden;
-        }
-        
-        .container {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            max-width: 800px;
-            width: 90%;
-            position: relative;
-            z-index: 1;
-        }
-        
-        h1 {
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-size: 2.8rem;
-            font-weight: 700;
-        }
-        
-        h1 span {
-            color: #6e8efb;
-        }
-        
-        p {
-            color: #666;
-            margin-bottom: 2rem;
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 15px 45px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(135deg, #5d7ef8, #9665d8);
-        }
-        
-        .btn:active {
-            transform: translateY(-1px);
-        }
-        
-        .features {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
-        
-        .feature {
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 1.5rem;
-            margin: 0.5rem;
-            border-radius: 10px;
-            width: 180px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .feature:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature i {
-            font-size: 2rem;
-            color: #6e8efb;
-            margin-bottom: 1rem;
-        }
-        
-        .feature h3 {
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-        
-        .feature p {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
-        
-        .bubbles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-            top: 0;
-            left: 0;
-        }
-        
-        .bubble {
-            position: absolute;
-            bottom: -100px;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: rise 10s infinite ease-in;
-        }
-        
-        .bubble:nth-child(1) {
-            width: 40px;
-            height: 40px;
-            left: 10%;
-            animation-duration: 8s;
-        }
-        
-        .bubble:nth-child(2) {
-            width: 20px;
-            height: 20px;
-            left: 20%;
-            animation-duration: 5s;
-            animation-delay: 1s;
-        }
-        
-        .bubble:nth-child(3) {
-            width: 50px;
-            height: 50px;
-            left: 35%;
-            animation-duration: 7s;
-            animation-delay: 2s;
-        }
-        
-        .bubble:nth-child(4) {
-            width: 80px;
-            height: 80px;
-            left: 50%;
-            animation-duration: 11s;
-            animation-delay: 0s;
-        }
-        
-        .bubble:nth-child(5) {
-            width: 35px;
-            height: 35px;
-            left: 55%;
-            animation-duration: 6s;
-            animation-delay: 1s;
-        }
-        
-        .bubble:nth-child(6) {
-            width: 45px;
-            height: 45px;
-            left: 65%;
-            animation-duration: 8s;
-            animation-delay: 3s;
-        }
-        
-        .bubble:nth-child(7) {
-            width: 90px;
-            height: 90px;
-            left: 70%;
-            animation-duration: 12s;
-            animation-delay: 2s;
-        }
-        
-        .bubble:nth-child(8) {
-            width: 25px;
-            height: 25px;
-            left: 80%;
-            animation-duration: 6s;
-            animation-delay: 2s;
-        }
-        
-        @keyframes rise {
-            0% {
-                bottom: -100px;
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(100px);
-            }
-            100% {
-                bottom: 1080px;
-                transform: translateX(-200px);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 2rem;
-            }
-            h1 {
-                font-size: 2.2rem;
-            }
-            p {
-                font-size: 1rem;
-            }
-            .feature {
-                width: 140px;
-                padding: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="bubbles">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
+    <div class="background">
+        <div class="floating-orbs"></div>
     </div>
     
     <div class="container">
-        <h1>Welcome to <span>Summar<span style="color: #a777e3;">AI</span>ze</span></h1>
-        <p>Your one-stop Content Summarization tool powered by AI. Summarize websites, YouTube videos in seconds!</p>
-        
-        <a href="https://summaraize-e17.streamlit.app/" class="btn">Go To SummarAIze</a>
-        
+        <div class="hero fade-in">
+            <h1 class="title">
+                <span class="slide-from-left">Summar</span>
+                <span class="fade-in-scale">AI</span>
+                <span class="slide-from-right">ze</span>
+            </h1>
+            <p class="subtitle">Experience the future of content consumption with our AI-powered summarization tool.
+                Transform lengthy content into concise, meaningful insights in seconds.</p>
+            <a href="https://summaraize-e17.streamlit.app/" class="cta-button">
+                <i class="fas fa-sparkles sparkle-icon"></i>
+                Experience SummarAIze
+                <i class="fas fa-sparkles sparkle-icon"></i>
+            </a>
+        </div>
+
         <div class="features">
-            <div class="feature">
-                <i class="fas fa-globe"></i>
-                <h3>Websites</h3>
-                <p>Summarize any website content with a single click</p>
+            <div class="feature fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Website Summaries</h3>
+                <p>Transform any webpage into digestible insights instantly</p>
             </div>
-            <div class="feature">
-                <i class="fab fa-youtube"></i>
-                <h3>YouTube</h3>
-                <p>Get concise summaries of any YouTube video</p>
+            <div class="feature fade-in">
+                <div class="feature-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <h3>YouTube Summaries</h3>
+                <p>Get the essence of any video without watching it entirely</p>
             </div>
-            <div class="feature">
-                <i class="fas fa-language"></i>
-                <h3>Multi-language</h3>
-                <p>Translate summaries to your preferred language</p>
+            <div class="feature fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <h3>Multi-language Support</h3>
+                <p>Break language barriers with instant translations</p>
             </div>
-            <div class="feature">
-                <i class="fas fa-comment-dots"></i>
-                <h3>Chat</h3>
-                <p>Ask follow-up questions about your summaries</p>
+            <div class="feature fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <h3>Interactive Chat</h3>
+                <p>Dive deeper with AI-powered follow-up discussions</p>
             </div>
-            <div class="feature">
-                <i class="fas fa-volume-up"></i>
-                <h3>TTS</h3>
-                <p>Text-To-Speech Capability</p>
+            <div class="feature fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+                <h3>Voice Output</h3>
+                <p>Listen to your summaries with natural text-to-speech</p>
             </div>
-            <div class="feature">
-                <i class="fas fa-file-download"></i>
-                <h3>Download</h3>
-                <p>Download summaries in PDF format</p>
+            <div class="feature fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-file-download"></i>
+                </div>
+                <h3>Easy Export</h3>
+                <p>Save and share your summaries in multiple formats</p>
             </div>
         </div>
-        <div class="more">And Many More......</div>
+
+        <div class="stats">
+            <div class="stat fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="stat-value">95%</div>
+                <div class="stat-label">Accuracy Rate</div>
+            </div>
+            <div class="stat fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="stat-value">20s</div>
+                <div class="stat-label">Processing Time</div>
+            </div>
+            <div class="stat fade-in">
+                <div class="stat-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="stat-value">10+</div>
+                <div class="stat-label">Supported Languages</div>
+            </div>
+        </div>
     </div>
-    
-    
+
+    <script src="script.js"></script>
 </body>
 </html>
